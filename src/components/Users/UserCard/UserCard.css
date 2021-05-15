@@ -1,0 +1,39 @@
+.UserCard {
+  max-width: 120px;
+  min-width: 120px;
+  margin: 10px;
+  height: 150px;
+  margin-top: 40px;
+  width: 90%;
+  overflow: initial;
+  background-color: var(--color-background-secondary);
+  margin-top: 40px;
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.UserCardTitle {
+  display: flex;
+  text-align: center;
+  border-radius: 16px;
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-background);
+  margin: -20px auto 0;
+  width: 88%;
+  padding: 16px;
+  height: 40px;
+}
+
+.MuiCardHeader-content {
+  width: 100%;
+}
+.UserCardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.UserCardContentMiddle {
+  display: flex;
+  justify-content: center;
+}

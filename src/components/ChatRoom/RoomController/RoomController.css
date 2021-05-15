@@ -1,0 +1,70 @@
+.RoomController {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.RoomControllerCard {
+  border-radius: 5px;
+  background-color: var(--color-background-secondary);
+}
+
+.RoomControllerCardContentArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px;
+  padding-bottom: 30px !important;
+}
+
+.RoomControllerDivider {
+  margin: 0px 10px 0px 10px;
+}
+
+.RoomControllerCardTitle {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0px;
+  padding-left: 20px;
+  border-bottom: 1px solid var(--color-primary);
+  font-weight: bold;
+}
+
+.RoomControllerButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.RoomControllerButtonContainer:not(:last-child) {
+  margin-right: 30px;
+}
+
+.RoomControllerButton {
+  display: flex;
+  border-radius: 50%;
+  background-color: var(--color-background);
+}
+.RoomControllerButton:hover {
+  box-shadow: rgb(171 207 248) 0px 0px 0px 6px;
+}
+
+.RoomControllerCardHeaderAverageContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 3px;
+  padding-left: 30px;
+}
+
+.RoomControllerCardHeaderAverageValue {
+  margin-left: 5px;
+  padding: 0px 5px 0px 5px;
+  color: var(--color-warning);
+  font-weight: bold;
+}
+
+.MuiCardHeader-action {
+  margin: 0;
+  padding-right: 5px;
+}

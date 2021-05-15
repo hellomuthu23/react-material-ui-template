@@ -1,0 +1,38 @@
+.RecentRoomsCard {
+  width: 450px;
+  min-width: 120px;
+  margin: 10px;
+  margin-top: 40px;
+  overflow: initial;
+  background-color: var(--color-background);
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.RecentRoomsCardTitle {
+  display: flex;
+  text-align: center;
+  border-radius: 16px;
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-background);
+  margin: -20px auto 0;
+  width: 88%;
+  padding: 16px;
+  height: 40px;
+}
+
+.MuiCardHeader-content {
+  width: 100%;
+}
+
+.RecentRoomsTableContainer {
+  max-height: 250px;
+}
+
+.RecentRoomsTableRow {
+  cursor: pointer;
+}
+
+.RecentRoomsCardContent {
+  text-align: center;
+}

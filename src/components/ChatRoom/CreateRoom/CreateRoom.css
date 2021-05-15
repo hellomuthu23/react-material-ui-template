@@ -1,0 +1,27 @@
+.CreateRoomTextField {
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+.CreateRoomButton {
+  color: var(--color-background);
+  width: 70%;
+  border-radius: 40px;
+}
+
+.CreateRoomCard {
+  background: transparent;
+  border: none !important;
+}
+
+.CreateRoomCardHeader {
+  text-align: center;
+}
+
+.CreateRoomCardContent {
+  text-align: center;
+}
+
+.CreateRoomCardAction {
+  justify-content: center;
+}

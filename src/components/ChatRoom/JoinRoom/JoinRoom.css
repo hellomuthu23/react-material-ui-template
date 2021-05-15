@@ -1,0 +1,27 @@
+.JoinRoomTextField {
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+.JoinRoomButton {
+  color: var(--color-background);
+  width: 70%;
+  border-radius: 40px;
+}
+
+.JoinRoomCard {
+  background: transparent;
+  border: none !important;
+}
+
+.JoinRoomCardHeader {
+  text-align: center;
+}
+
+.JoinRoomCardContent {
+  text-align: center;
+}
+
+.JoinRoomCardAction {
+  justify-content: center;
+}
