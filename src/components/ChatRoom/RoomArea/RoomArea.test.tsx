@@ -1,19 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { Room } from '../../../types/room';
+import { Board } from '../../../types/board';
 import { User } from '../../../types/user';
 import { Status } from '../../../types/status';
-import { RoomArea } from './RoomArea';
+import { BoardArea } from './RoomArea';
 
 describe('RoomArea component', () => {
-  const mockRoom: Room = {
+  const mockRoom: Board = {
     id: 'xyz',
     name: 'testRoom',
     createdBy: 'someone',
     createdAt: new Date(),
     average: 0,
     createdById: 'abc',
-    roomStatus: Status.InProgress,
+    status: Status.InProgress,
   };
   const mockUsers: User[] = [
     { id: 'a1', name: 'SpiderMan', status: Status.InProgress, value: 0 },
@@ -21,7 +21,7 @@ describe('RoomArea component', () => {
   ];
   const mockCurrentUserId = mockUsers[0].id;
   it('should display players', () => {
-    render(<RoomArea chatRoom={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
+    render(<BoardArea board={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
 
     mockUsers.forEach((player: User) => {
       expect(screen.getByText(player.name)).toBeInTheDocument();
@@ -29,11 +29,11 @@ describe('RoomArea component', () => {
   });
 
   it('should display chatRoom controller with name', () => {
-    render(<RoomArea chatRoom={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
+    render(<BoardArea board={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
     expect(screen.getByText(mockRoom.name)).toBeInTheDocument();
   });
   it('should display card picker', () => {
-    render(<RoomArea chatRoom={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
+    render(<BoardArea board={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
 
     expect(screen.queryAllByText('5')).toHaveLength(3);
   });

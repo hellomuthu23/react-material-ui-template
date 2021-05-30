@@ -2,15 +2,16 @@ import { Divider, Grid, Slide, Typography, useMediaQuery } from '@material-ui/co
 import React from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { Footer } from '../../components/Footer/Footer';
-import { CreateRoom } from '../../components/ChatRoom/CreateRoom/CreateRoom';
+import { CreateBoard } from '../../components/ChatRoom/CreateBoard/CreateBoard';
 import { JoinRoom } from '../../components/ChatRoom/JoinRoom/JoinRoom';
-import { RecentRooms } from '../../components/ChatRoom/RecentRooms/RecentRooms';
+import { RecentBoards } from '../../components/ChatRoom/RecentRooms/RecentBoards';
 import LandingImage from './../../images/background.jpg';
 import SessionControllerImage from './../../images/Session.jpg';
 import './HomePage.css';
+import { Routes } from '../../service/config';
 
 export const HomePage = () => {
-  const isJoin = useRouteMatch('/join');
+  const isJoin = useRouteMatch(Routes.join);
   const isSmallScreen = useMediaQuery((theme: any) => theme.breakpoints.down('xs'));
 
   return (
@@ -20,9 +21,9 @@ export const HomePage = () => {
           <Grid item sm={12} lg={6}>
             <Slide direction='down' in={true} timeout={1000}>
               <div className='HomePageContainer'>
-                <Typography variant='h5'>Task Board</Typography>
+                <Typography variant='h5'>Task Board App</Typography>
                 <img
-                  alt='React Chat App'
+                  alt='React Task board App'
                   style={{ transform: isSmallScreen ? 'scale(0.5)' : 'none' }}
                   src={LandingImage}
                 ></img>
@@ -35,7 +36,7 @@ export const HomePage = () => {
             </Slide>
           </Grid>
           <Grid item sm={12} lg={6}>
-            <div className='HomePageContainer'>{isJoin ? <JoinRoom /> : <CreateRoom />}</div>
+            <div className='HomePageContainer'>{isJoin ? <JoinRoom /> : <CreateBoard />}</div>
           </Grid>
         </Grid>
         <Grid container item sm={12} lg={9} justify='center' alignItems='center' spacing={3}>
@@ -50,7 +51,7 @@ export const HomePage = () => {
           <Grid item sm={12} lg={6}>
             <Slide in={true} direction='up' timeout={1500}>
               <div className='HomePageContainer'>
-                <RecentRooms />
+                <RecentBoards />
               </div>
             </Slide>
           </Grid>
@@ -59,7 +60,7 @@ export const HomePage = () => {
             <Slide in={true} direction='up' timeout={1500}>
               <div className='HomePageContainer'>
                 <Typography variant='subtitle1'>
-                  Here is your recent Planning/Refinement sessions, click on the session name to join the session again.
+                  Here is your recent Chat Room, click on the room name to join the chat room again.
                 </Typography>
               </div>
             </Slide>
@@ -76,7 +77,7 @@ export const HomePage = () => {
           <Grid item sm={12} lg={6}>
             <Slide in={true} direction='up' timeout={2000}>
               <div className='HomePageContainer'>
-                <Typography variant='h5'> Intuitive UI Design</Typography>
+                <Typography variant='h5'>Intuitive UI Design</Typography>
                 <Typography variant='subtitle1'>
                   Beautiful design for voting the story points, showing team members voting status with emojis(👍 -
                   Voting Done, 🤔 - Yet to Vote). Once the card values are revealed, the card color helps to understand

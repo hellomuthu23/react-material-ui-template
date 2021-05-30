@@ -1,18 +1,18 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import reactRouter from 'react-router';
-import * as chatRoomsService from '../../service/chatRooms';
+import * as chatRoomsService from '../../service/boards';
 import * as playersService from '../../service/users';
-import { Room } from '../../types/room';
+import { Board } from '../../types/board';
 import { User } from '../../types/user';
 import { Status } from '../../types/status';
-import { Room } from './chatRoom';
+import { BoardComponent } from './Board';
 
 jest.mock('../../service/players');
 // jest.mock('../../service/chatRooms');
 const mockHistoryPush = jest.fn();
 
-describe('Poker component', () => {
+describe('Board component', () => {
   beforeEach(() => {
     jest.spyOn(reactRouter, 'useHistory').mockReturnValue({ push: mockHistoryPush } as any);
     jest.spyOn(reactRouter, 'useParams').mockReturnValue({ Id: 'zz' } as any);
@@ -29,17 +29,17 @@ describe('Poker component', () => {
       } as any;
     });
     act(() => {
-      render(<ChatRoom />);
+      render(<BoardComponent />);
     });
     await waitFor(() => expect(screen.getByText('chatRoom not found')).toBeInTheDocument());
   });
   it('should display chatRoom area when chatRoom is found', async () => {
-    const mockRoom: Room = {
+    const mockRoom: Board = {
       id: 'abc',
       name: 'avengers',
       createdBy: 'IronMan',
-      roomStatus: Status.NotStarted,
-    } as Room;
+      status: Status.NotStarted,
+    } as Board;
     const mockUsers: User[] = [
       {
         id: 'xx',
@@ -61,12 +61,12 @@ describe('Poker component', () => {
 
     jest.spyOn(playersService, 'getCurrentUserId').mockReturnValue('322');
     act(() => {
-      render(<ChatRoom />);
+      render(<BoardComponent />);
     });
 
     await waitFor(() => screen.getByText(mockRoom.name));
 
     expect(screen.getByText(mockRoom.name)).toBeInTheDocument();
-    expect(screen.getByText(mockRoom.roomStatus)).toBeInTheDocument();
+    expect(screen.getByText(mockRoom.status)).toBeInTheDocument();
   });
 });

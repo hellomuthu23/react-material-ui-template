@@ -2,9 +2,9 @@ import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import reactRouter from 'react-router';
-import * as chatRoomService from '../../../service/chatRooms';
+import * as chatRoomService from '../../../service/boards';
 import * as playersService from '../../../service/users';
-import { Room } from '../../../types/room';
+import { Board } from '../../../types/board';
 import { JoinRoom } from './JoinRoom';
 
 jest.mock('../../../service/players');
@@ -53,7 +53,7 @@ describe('JoinRoom component', () => {
   it('should automatically join the chatRoom when player has already joined', async () => {
     const chatRoomId = 'abc';
     jest.spyOn(reactRouter, 'useParams').mockReturnValue({ id: chatRoomId });
-    jest.spyOn(chatRoomService, 'getRoom').mockResolvedValue({ id: chatRoomId } as Room);
+    jest.spyOn(chatRoomService, 'getRoom').mockResolvedValue({ id: chatRoomId } as Board);
     jest.spyOn(playersService, 'addUserToRoom').mockResolvedValue(true);
     jest.spyOn(playersService, 'isCurrentUserInRoom').mockReturnValue(true);
 

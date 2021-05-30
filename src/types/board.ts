@@ -1,17 +1,17 @@
 import { Status } from './status';
 
-export interface Room {
+export interface Board {
   id: string;
   name: string;
   average: number;
-  roomStatus: Status;
+  status: Status;
   createdBy: string;
   createdById: string;
   createdAt: Date;
   updatedAt?: Date;
 }
 
-export interface NewRoom {
+export interface NewBoard {
   name: string;
   createdBy: string;
   createdAt: Date;

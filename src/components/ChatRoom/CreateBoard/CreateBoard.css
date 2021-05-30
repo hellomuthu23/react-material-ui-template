@@ -1,27 +1,27 @@
-.CreateRoomTextField {
+.CreateBoardTextField {
   width: 70%;
   padding-bottom: 30px;
 }
 
-.CreateRoomButton {
+.CreateBoardButton {
   color: var(--color-background);
   width: 70%;
   border-radius: 40px;
 }
 
-.CreateRoomCard {
+.CreateBoardCard {
   background: transparent;
   border: none !important;
 }
 
-.CreateRoomCardHeader {
+.CreateBoardCardHeader {
   text-align: center;
 }
 
-.CreateRoomCardContent {
+.CreateBoardCardContent {
   text-align: center;
 }
 
-.CreateRoomCardAction {
+.CreateBoardCardAction {
   justify-content: center;
 }

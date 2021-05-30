@@ -1,8 +1,8 @@
 import { Button, Card, CardActions, CardContent, CardHeader, Grow, TextField } from '@material-ui/core';
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { getRoom } from '../../../service/chatRooms';
-import { addUserToRoom, isCurrentUserInRoom } from '../../../service/users';
+import { getBoard } from '../../../service/boards';
+import { Routes } from '../../../service/config';
 import './JoinRoom.css';
 
 export const JoinRoom = () => {
@@ -16,11 +16,9 @@ export const JoinRoom = () => {
   useEffect(() => {
     async function fetchData() {
       if (joinRoomId) {
-        if (await getRoom(joinRoomId)) {
+        if (await getBoard(joinRoomId)) {
           setIsRoomFound(true);
-          if (isCurrentUserInRoom(joinRoomId)) {
-            history.push(`/chatRoom/${joinRoomId}`);
-          }
+          history.push(`${Routes.boards}/${joinRoomId}`);
         }
       }
     }
@@ -30,12 +28,8 @@ export const JoinRoom = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (joinRoomId) {
-      const res = await addUserToRoom(joinRoomId, playerName);
-
-      setIsRoomFound(res);
-      if (res) {
-        history.push(`/chatRoom/${joinRoomId}`);
-      }
+      setIsRoomFound(true);
+      history.push(`${Routes.boards}/${joinRoomId}`);
     }
   };
 

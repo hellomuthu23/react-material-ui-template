@@ -1,4 +1,4 @@
-.RecentRoomsCard {
+.RecentBoardsCard {
   width: 450px;
   min-width: 120px;
   margin: 10px;
@@ -9,7 +9,7 @@
   border-radius: 4px;
 }
 
-.RecentRoomsCardTitle {
+.RecentBoardsCardTitle {
   display: flex;
   text-align: center;
   border-radius: 16px;
@@ -25,14 +25,14 @@
   width: 100%;
 }
 
-.RecentRoomsTableContainer {
+.RecentBoardsTableContainer {
   max-height: 250px;
 }
 
-.RecentRoomsTableRow {
+.RecentBoardsTableRow {
   cursor: pointer;
 }
 
-.RecentRoomsCardContent {
+.RecentBoardsCardContent {
   text-align: center;
 }

@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import reactRouter from 'react-router';
 import * as playersService from '../../../service/users';
-import { Room } from '../../../types/room';
-import { RecentRooms } from './RecentRooms';
+import { Board } from '../../../types/board';
+import { RecentBoards } from './RecentBoards';
 
 jest.mock('../../../service/players');
 const mockHistoryPush = jest.fn();
@@ -15,19 +15,19 @@ describe('RecentRooms component', () => {
   });
   it('should display no recent session when no chatRooms found in user local storage', async () => {
     act(() => {
-      render(<RecentRooms />);
+      render(<RecentBoards />);
     });
     expect(screen.getByText('No recent sessions found')).toBeInTheDocument();
   });
   it('should display recent chatRooms when chatRooms found in local storage', async () => {
-    const mockRooms: Room[] = [
+    const mockRooms: Board[] = [
       { id: 'abv', name: 'avengers', createdBy: 'IronMan' },
       { id: 'xyz', name: 'endchatRoom', createdBy: 'SpiderMan' },
-    ] as Room[];
+    ] as Board[];
     jest.spyOn(playersService, 'getUserRecentRooms').mockResolvedValue(mockRooms);
 
     act(() => {
-      render(<RecentRooms />);
+      render(<RecentBoards />);
     });
 
     await waitFor(() => screen.getByText(mockRooms[0].name));
@@ -39,14 +39,14 @@ describe('RecentRooms component', () => {
   });
 
   it('should navigate to the chatRoom when clicking on chatRoom', async () => {
-    const mockRooms: Room[] = [
+    const mockRooms: Board[] = [
       { id: 'abc', name: 'avengers', createdBy: 'IronMan' },
       { id: 'xyz', name: 'endchatRoom', createdBy: 'SpiderMan' },
-    ] as Room[];
+    ] as Board[];
     jest.spyOn(playersService, 'getUserRecentRooms').mockResolvedValue(mockRooms);
 
     act(() => {
-      render(<RecentRooms />);
+      render(<RecentBoards />);
     });
 
     await waitFor(() => screen.getByText(mockRooms[0].name));
