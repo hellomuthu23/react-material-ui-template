@@ -1,27 +1,27 @@
-.JoinRoomTextField {
+.AddTaskTextField {
   width: 70%;
   padding-bottom: 30px;
 }
 
-.JoinRoomButton {
+.AddTaskButton {
   color: var(--color-background);
   width: 70%;
   border-radius: 40px;
 }
 
-.JoinRoomCard {
+.AddTaskCard {
   background: transparent;
   border: none !important;
 }
 
-.JoinRoomCardHeader {
+.AddTaskCardHeader {
   text-align: center;
 }
 
-.JoinRoomCardContent {
+.AddTaskCardContent {
   text-align: center;
 }
 
-.JoinRoomCardAction {
+.AddTaskCardAction {
   justify-content: center;
 }

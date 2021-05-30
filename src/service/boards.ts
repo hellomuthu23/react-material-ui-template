@@ -5,7 +5,7 @@ import {
   getBoardsFromStore,
   updateBoardDataInStore,
 } from '../repository/boardsStore';
-import { NewBoard } from '../types/board';
+import { Board, NewBoard } from '../types/board';
 import { Status } from '../types/status';
 
 export const addNewBoard = async (newBoard: NewBoard): Promise<string> => {
@@ -14,15 +14,15 @@ export const addNewBoard = async (newBoard: NewBoard): Promise<string> => {
     id: ulid(),
     status: Status.NotStarted,
   };
-  const boardData = {
+  const boardData: Board = {
     ...newBoard,
     id: ulid(),
     average: 0,
-    users: [],
+    tasks: [],
     createdById: user.id,
     status: Status.Started,
   };
-  await addBoardToStore(boardData.id, boardData);
+  addBoardToStore(boardData.id, boardData);
 
   return boardData.id;
 };
@@ -34,30 +34,7 @@ export const getBoard = (id: string) => {
   return getBoardFromStore(id);
 };
 
-export const updateRoom = async (chatRoomId: string, updatedRoom: any): Promise<boolean> => {
-  await updateBoardDataInStore(chatRoomId, updatedRoom);
+export const updateBoard = (boardId: string, updatedBoard: any): boolean => {
+  updateBoardDataInStore(boardId, updatedBoard);
   return true;
-};
-
-export const resetRoom = async (chatRoomId: string) => {
-  const chatRoom = await getBoardFromStore(chatRoomId);
-  if (chatRoom) {
-    const updatedRoom = {
-      average: 0,
-      chatRoomStatus: Status.Started,
-    };
-    updateRoom(chatRoomId, updatedRoom);
-  }
-};
-
-export const finishBoard = async (boardId: string) => {
-  const chatRoom = await getBoardFromStore(boardId);
-
-  if (chatRoom) {
-    const updatedRoom = {
-      average: 0,
-      chatRoomStatus: Status.Finished,
-    };
-    updateRoom(boardId, updatedRoom);
-  }
 };

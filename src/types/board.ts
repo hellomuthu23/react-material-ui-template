@@ -9,10 +9,20 @@ export interface Board {
   createdById: string;
   createdAt: Date;
   updatedAt?: Date;
+  tasks: Task[];
 }
 
 export interface NewBoard {
   name: string;
   createdBy: string;
   createdAt: Date;
+}
+
+export interface Task {
+  id: string;
+  name: string;
+  description?: string;
+  status: Status;
+  createdAt: Date;
+  createdBy?: string;
 }

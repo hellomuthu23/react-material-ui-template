@@ -23,7 +23,7 @@ export const RecentBoards = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const boards = await getBoards();
+      const boards = getBoards();
       if (boards) {
         setRecentBoards(boards);
       }
@@ -45,7 +45,7 @@ export const RecentBoards = () => {
     <Card variant='outlined' className='RecentBoardsCard'>
       <CardHeader
         className='RecentBoardsCardTitle'
-        title='Recent Task Boards'
+        title='My Recent Task Boards'
         titleTypographyProps={{ variant: 'h6', noWrap: true }}
       />
       <CardContent className='RecentBoardsCardContent'>

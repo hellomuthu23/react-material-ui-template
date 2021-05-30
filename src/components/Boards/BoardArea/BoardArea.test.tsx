@@ -3,9 +3,9 @@ import React from 'react';
 import { Board } from '../../../types/board';
 import { User } from '../../../types/user';
 import { Status } from '../../../types/status';
-import { BoardArea } from './RoomArea';
+import { BoardArea } from './BoardArea';
 
-describe('RoomArea component', () => {
+describe('BoardArea component', () => {
   const mockRoom: Board = {
     id: 'xyz',
     name: 'testRoom',

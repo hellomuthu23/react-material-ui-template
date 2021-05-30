@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { getBoard } from '../../service/boards';
 import { Board } from '../../types/board';
-import { BoardArea } from './RoomArea/RoomArea';
+import { BoardArea } from './BoardArea/BoardArea';
 import './Board.css';
-import { Routes } from '../../service/config';
 
 export const BoardComponent = () => {
   let { id } = useParams<{ id: string }>();
@@ -20,7 +19,6 @@ export const BoardComponent = () => {
 
       setIsLoading(false);
 
-      // history.push(`${Routes.join}/${id}`);
     }
     fetchData(id);
   }, [id, history]);

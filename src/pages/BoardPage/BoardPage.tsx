@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoardComponent } from '../../components/ChatRoom/Board';
+import { BoardComponent } from '../../components/Boards/Board';
 import './BoardPage.css';
 
 export function BoardsPage() {

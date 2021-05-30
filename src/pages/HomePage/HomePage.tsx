@@ -2,9 +2,8 @@ import { Divider, Grid, Slide, Typography, useMediaQuery } from '@material-ui/co
 import React from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { Footer } from '../../components/Footer/Footer';
-import { CreateBoard } from '../../components/ChatRoom/CreateBoard/CreateBoard';
-import { JoinRoom } from '../../components/ChatRoom/JoinRoom/JoinRoom';
-import { RecentBoards } from '../../components/ChatRoom/RecentRooms/RecentBoards';
+import { CreateBoard } from '../../components/Boards/CreateBoard/CreateBoard';
+import { RecentBoards } from '../../components/Boards/RecentBoards/RecentBoards';
 import LandingImage from './../../images/background.jpg';
 import SessionControllerImage from './../../images/Session.jpg';
 import './HomePage.css';
@@ -36,7 +35,7 @@ export const HomePage = () => {
             </Slide>
           </Grid>
           <Grid item sm={12} lg={6}>
-            <div className='HomePageContainer'>{isJoin ? <JoinRoom /> : <CreateBoard />}</div>
+            <div className='HomePageContainer'>{isJoin ? <RecentBoards /> : <CreateBoard />}</div>
           </Grid>
         </Grid>
         <Grid container item sm={12} lg={9} justify='center' alignItems='center' spacing={3}>
