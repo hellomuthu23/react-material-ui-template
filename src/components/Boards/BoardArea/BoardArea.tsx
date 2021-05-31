@@ -1,4 +1,4 @@
-import { Button, Card } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Board, Task } from '../../../types/board';
 import { AddTask } from '../../Tasks/AddTask/AddTask';
@@ -14,48 +14,33 @@ interface BoardAreaProps {
 }
 export const BoardArea: React.FC<BoardAreaProps> = ({ board }) => {
   const [showAddTask, setShowAddTask] = useState(false);
-  const todoCards = board.tasks.map((task) => {
-    if (task.status === Status.NotStarted) {
-      return {
-        id: task.id,
-        content: {
-          name: task.name,
-          description: task.description || '',
-        },
-      };
-    }
-  });
+
   const data = {
     columns: [
       {
         id: 1,
         title: 'Todo',
-        cards: todoCards,
+        cards: getTasksByStatus(board.tasks, Status.NotStarted),
       },
       {
         id: 2,
         title: 'Doing',
-        cards: [
-          {
-            id: 3,
-            content: {
-              title: 'Drag-n-drop support',
-              description: 'Move a card between the columns',
-            },
-          },
-        ],
+        cards: getTasksByStatus(board.tasks, Status.InProgress),
+      },
+      {
+        id: 3,
+        title: 'Done',
+        cards: getTasksByStatus(board.tasks, Status.Finished),
       },
     ],
   };
 
   // ts-ignore
-  const renderCard = ({ content }, { removeCard, dragging }) => (
-    <TaskCard boardId={board.id} task={content as Task}></TaskCard>
-  );
+  const renderCard = ({ content }, { removeCard, dragging }) => <TaskCard boardId={board.id} task={content}></TaskCard>;
   return (
     <>
       <div className='ContentArea'>{board.name}</div>
-      <ReactBoard allowAddCard initialBoard={data} renderCard={renderCard} />
+      <ReactBoard initialBoard={data} renderCard={renderCard} allowAddCard={{ on: 'bottom' }} />
 
       <Button onClick={() => setShowAddTask(true)}>Add Task</Button>
       {showAddTask && <AddTask boardId={board.id}></AddTask>}
@@ -65,3 +50,18 @@ export const BoardArea: React.FC<BoardAreaProps> = ({ board }) => {
 };
 
 export default BoardArea;
+
+const getTasksByStatus = (tasks: Task[], status: Status) => {
+  const filteredTasks = tasks
+    .filter((task) => task.status === status)
+    .map((task) => {
+      return {
+        id: task.id,
+        content: {
+          name: task.name,
+          description: task.description || '',
+        },
+      };
+    });
+  return filteredTasks;
+};

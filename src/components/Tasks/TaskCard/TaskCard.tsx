@@ -7,7 +7,9 @@ export interface TaskCardProps {
   boardId: string;
 }
 export const TaskCard: React.FC<TaskCardProps> = ({ boardId, task }) => {
-  console.log(boardId);
+  if (!task) {
+    return null;
+  }
   return (
     <div className='TaskCard'>
       <div className='TaskCardHeader'>{task.name}</div>

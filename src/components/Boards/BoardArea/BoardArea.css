@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 60%;
-  border: 1px solid  var(--color-background);
+  border: 1px solid var(--color-background);
   overflow: auto;
   padding: 2px;
   justify-content: center;
@@ -11,5 +11,14 @@
 .Footer {
   text-align: center;
   display: flex;
+  justify-content: center;
+}
+
+.react-kanban-column {
+  min-width: 400px;
+  min-height: 75vh !important;
+}
+
+.react-kanban-board {
   justify-content: center;
 }
