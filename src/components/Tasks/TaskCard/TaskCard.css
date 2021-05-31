@@ -1,0 +1,19 @@
+.TaskCard {
+  background: white;
+  max-width: 250px;
+  max-height: 200px;
+  margin: 20px;
+  border: 1px solid grey;
+  border-left: 3px solid green;
+}
+
+.TaskCardHeader {
+  padding: 20px 20px 10px 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.TaskCardContent {
+  padding: 10px 20px 20px 20px;
+  text-align: left;
+}
