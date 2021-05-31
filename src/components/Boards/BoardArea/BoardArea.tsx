@@ -35,15 +35,17 @@ export const BoardArea: React.FC<BoardAreaProps> = ({ board }) => {
     ],
   };
 
-  // ts-ignore
   const renderCard = ({ content }, { removeCard, dragging }) => <TaskCard boardId={board.id} task={content}></TaskCard>;
   return (
     <>
-      <div className='ContentArea'>{board.name}</div>
+      <div className='BoardAreaHeader'>
+        <h3>{board.name}</h3>
+        <Button onClick={() => setShowAddTask(true)}>Add Task</Button>
+      </div>
+
       <ReactBoard initialBoard={data} renderCard={renderCard} allowAddCard={{ on: 'bottom' }} />
 
-      <Button onClick={() => setShowAddTask(true)}>Add Task</Button>
-      {showAddTask && <AddTask boardId={board.id}></AddTask>}
+      {showAddTask && <AddTask show={showAddTask} onClose={() => setShowAddTask(false)} boardId={board.id}></AddTask>}
       <div className='Footer'></div>
     </>
   );
@@ -58,8 +60,7 @@ const getTasksByStatus = (tasks: Task[], status: Status) => {
       return {
         id: task.id,
         content: {
-          name: task.name,
-          description: task.description || '',
+          ...task,
         },
       };
     });

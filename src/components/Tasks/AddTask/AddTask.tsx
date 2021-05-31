@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardHeader, Grow, TextField } from '@material-ui/core';
+import { Button, Card, CardActions, CardContent, Dialog, DialogTitle, TextField } from '@material-ui/core';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { ulid } from 'ulid';
 import { addTask } from '../../../service/task';
@@ -8,34 +8,34 @@ import './AddTask.css';
 
 export interface AddTaskProps {
   boardId: string;
+  show: boolean;
+  onClose: () => void;
 }
-export const AddTask : React.FC<AddTaskProps> = ( {boardId}) => {
-  const [taskName, setTaskName] = useState('Avengers');
-  const [taskDescription, setTaskDescription] = useState('Avengers');
-  const [createdBy, setCreatedBy] = useState('SuperHero');
+export const AddTask: React.FC<AddTaskProps> = ({ show, boardId, onClose }) => {
+  const [taskName, setTaskName] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
+  const [createdBy, setCreatedBy] = useState('');
 
-  const handleSubmit =  (event: FormEvent) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const task: Task = {
       id: ulid(),
       name: taskName,
       description: taskDescription,
-      status : Status.NotStarted,
+      status: Status.NotStarted,
       createdBy: createdBy,
       createdAt: new Date(),
     };
     addTask(task, boardId);
+    onClose();
   };
 
   return (
-    <Grow in={true} timeout={1000}>
+    <Dialog onClose={() => onClose()} aria-labelledby='simple-dialog-title' open={show}>
+      <DialogTitle id='simple-dialog-title'>Add Task</DialogTitle>
+
       <form onSubmit={handleSubmit}>
         <Card variant='outlined' className='AddTaskCard'>
-          <CardHeader
-            className='AddTaskCardHeader'
-            title='Create New Task Board'
-            titleTypographyProps={{ variant: 'h4' }}
-          />
           <CardContent className='AddTaskCardContent'>
             <TextField
               className='AddTaskTextField'
@@ -47,7 +47,7 @@ export const AddTask : React.FC<AddTaskProps> = ( {boardId}) => {
               variant='outlined'
               onChange={(event: ChangeEvent<HTMLInputElement>) => setTaskName(event.target.value)}
             />
-             <TextField
+            <TextField
               className='AddTaskTextField'
               required
               id='filled-required'
@@ -75,6 +75,6 @@ export const AddTask : React.FC<AddTaskProps> = ( {boardId}) => {
           </CardActions>
         </Card>
       </form>
-    </Grow>
+    </Dialog>
   );
 };

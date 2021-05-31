@@ -12,6 +12,7 @@
 .AddTaskCard {
   background: transparent;
   border: none !important;
+  padding: 20px;
 }
 
 .AddTaskCardHeader {
