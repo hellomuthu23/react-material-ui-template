@@ -1,3 +1,5 @@
+import { Divider } from '@material-ui/core';
+import { DeleteForeverOutlined } from '@material-ui/icons';
 import React from 'react';
 import { deleteTask } from '../../../service/task';
 import { Task } from '../../../types/board';
@@ -21,14 +23,15 @@ export const TaskCard: React.FC<TaskCardProps> = ({ boardId, task }) => {
     >
       <div className='TaskCardHeader'>
         <div> {task.name}</div>
-        <button className='TaskDeleteButton' onClick={() => deleteTask(task.id, boardId)}>
-          x
+        <button className='TaskDeleteButton' title='Delete task' onClick={() => deleteTask(task.id, boardId)}>
+          <DeleteForeverOutlined></DeleteForeverOutlined>
         </button>
       </div>
+      <Divider variant='middle'></Divider>
       <div className='TaskCardContent'>{task.description}</div>
       <div className='TaskCardFooter'>
         <div title={task.createdBy} className='TaskFooterOwner'>
-          {task.createdBy?.substr(1, 1).toUpperCase()}
+          {task.createdBy?.substr(0, 1).toUpperCase()}
         </div>
       </div>
     </div>
