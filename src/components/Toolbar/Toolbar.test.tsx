@@ -31,7 +31,7 @@ describe('Toolbar component', () => {
   });
   it('should render correct title', () => {
     render(<Toolbar />);
-    const title = screen.getByText('Planning Poker');
+    const title = screen.getByText('Task Board');
     expect(title).toBeInTheDocument();
   });
   it('should render Create new session button', () => {
@@ -62,7 +62,7 @@ describe('Toolbar component', () => {
   });
   it('should navigate to home page when Title is clicked clicked', () => {
     render(<Toolbar />);
-    const title = screen.getByText('Planning Poker');
+    const title = screen.getByText('Task Board');
     act(() => {
       userEvent.click(title);
     });
@@ -74,6 +74,6 @@ describe('Toolbar component', () => {
     act(() => {
       userEvent.click(title);
     });
-    expect(window.location.href).toEqual('https://github.com/hellomuthu23/planning-poker');
+    expect(window.location.href).toEqual('https://github.com/hellomuthu23/react-material-ui-template');
   });
 });

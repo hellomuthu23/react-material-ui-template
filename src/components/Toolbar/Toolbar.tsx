@@ -48,7 +48,7 @@ export const Toolbar = () => {
               <Button
                 id='github-button'
                 color='primary'
-                onClick={() => (window.location.href = 'https://github.com/hellomuthu23/planning-poker')}
+                onClick={() => (window.location.href = 'https://github.com/hellomuthu23/react-material-ui-template')}
               >
                 <GithubIcon></GithubIcon>
               </Button>

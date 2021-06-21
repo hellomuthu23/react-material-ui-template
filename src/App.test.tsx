@@ -7,6 +7,6 @@ jest.mock('./service/chatRooms');
 describe('App', () =>
   it('Should display toolbar with header', () => {
     render(<App />);
-    const toolBarHeader = screen.getByText('Planning Poker');
+    const toolBarHeader = screen.getByText('Task Board');
     expect(toolBarHeader).toBeInTheDocument();
   }));

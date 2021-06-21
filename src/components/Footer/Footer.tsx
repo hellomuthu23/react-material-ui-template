@@ -25,9 +25,7 @@ export const Footer = () => {
             </div>
 
             <Divider orientation='vertical' flexItem></Divider>
-            <Link href='https://github.com/hellomuthu23/planning-poker/issues'>
-              Submit an Issue
-            </Link>
+            <Link href='https://github.com/hellomuthu23/react-material-ui-template/issues'>Submit an Issue</Link>
           </div>
         </div>
       </Slide>
