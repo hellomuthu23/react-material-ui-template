@@ -1,4 +1,4 @@
-import { Divider, Grid, Slide, Typography, useMediaQuery } from '@material-ui/core';
+import { Divider, Grid, Slide, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import React from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { Footer } from '../../components/Footer/Footer';
@@ -11,7 +11,8 @@ import { Routes } from '../../service/config';
 
 export const HomePage = () => {
   const isJoin = useRouteMatch(Routes.join);
-  const isSmallScreen = useMediaQuery((theme: any) => theme.breakpoints.down('xs'));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
     <>
@@ -23,7 +24,7 @@ export const HomePage = () => {
                 <Typography variant='h5'>Task Board App</Typography>
                 <img
                   alt='React Task board App'
-                  style={{ transform: isSmallScreen ? 'scale(0.5)' : 'none' }}
+                  style={{ height: '400px', width: '500px', transform: isSmallScreen ? 'scale(0.5)' : 'none' }}
                   src={LandingImage}
                 ></img>
                 <Typography variant='subtitle1'>
@@ -59,7 +60,7 @@ export const HomePage = () => {
             <Slide in={true} direction='up' timeout={1500}>
               <div className='HomePageContainer'>
                 <Typography variant='subtitle1'>
-                  Here is your recent Chat Room, click on the room name to join the chat room again.
+                  Here is your recent Task Boards, click on the Board name to view the tasks.
                 </Typography>
               </div>
             </Slide>
@@ -78,10 +79,8 @@ export const HomePage = () => {
               <div className='HomePageContainer'>
                 <Typography variant='h5'>Intuitive UI Design</Typography>
                 <Typography variant='subtitle1'>
-                  Beautiful design for voting the story points, showing team members voting status with emojis(👍 -
-                  Voting Done, 🤔 - Yet to Vote). Once the card values are revealed, the card color helps to understand
-                  if the team's voting is sync or not. Session Moderator has full control on revealing story points and
-                  restarting the session.
+                  Beautiful design for managing tasks, ability to add and delete tasks. Drag and Drop feature to move
+                  the task across different stage in the Kanban board.
                 </Typography>
               </div>
             </Slide>

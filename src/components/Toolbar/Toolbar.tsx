@@ -1,4 +1,4 @@
-import { Button, Slide, useMediaQuery } from '@material-ui/core';
+import { Button, Slide, useMediaQuery, useTheme } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import AppToolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -14,15 +14,16 @@ export const title = 'Task Board';
 
 export const Toolbar = () => {
   const history = useHistory();
-  const isSmallScreen = useMediaQuery((theme: any) => theme.breakpoints.down('xs'));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
     <Slide direction='down' in={true} timeout={800}>
-      <AppBar position='sticky' className='AppBar'>
+      <AppBar position='sticky' className='AppBar' color='inherit'>
         <AppToolbar>
           <div className='HeaderContainer'>
             <div className='HeaderLeftContainer' onClick={() => history.push(Routes.home)}>
-              <AssignmentTurnedInIcon className='HeaderIcon' />
+              <AssignmentTurnedInIcon color='primary' className='HeaderIcon' />
               <Typography variant={isSmallScreen ? 'subtitle1' : 'h5'} color='inherit' noWrap>
                 {title}
               </Typography>
@@ -31,7 +32,7 @@ export const Toolbar = () => {
               <Button
                 title='New Session'
                 startIcon={<AddCircleOutlineIcon />}
-                color='inherit'
+                color='primary'
                 onClick={() => history.push(Routes.home)}
               >
                 {!isSmallScreen ? 'New Board' : null}
@@ -39,14 +40,14 @@ export const Toolbar = () => {
               <Button
                 startIcon={<MergeTypeOutlinedIcon />}
                 size={isSmallScreen ? 'small' : 'large'}
-                color='inherit'
+                color='primary'
                 onClick={() => history.push(Routes.join)}
               >
                 {!isSmallScreen ? 'Open Board' : null}
               </Button>
               <Button
                 id='github-button'
-                color='inherit'
+                color='primary'
                 onClick={() => (window.location.href = 'https://github.com/hellomuthu23/planning-poker')}
               >
                 <GithubIcon></GithubIcon>

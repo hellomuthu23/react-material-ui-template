@@ -4,7 +4,7 @@
   margin: 10px;
   margin-top: 40px;
   overflow: initial;
-  background-color: var(--color-background);
+  background-color: white;
   transition: 0.3s;
   border-radius: 4px;
 }
@@ -13,8 +13,9 @@
   display: flex;
   text-align: center;
   border-radius: 16px;
-  border: 2px solid var(--color-primary);
-  background-color: var(--color-background);
+  border: 2px solid #3f51b5;
+  /* background-color: var(--color-background); */
+  background-color: white;
   margin: -20px auto 0;
   width: 88%;
   padding: 16px;

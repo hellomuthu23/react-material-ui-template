@@ -16,9 +16,7 @@ export const BoardComponent = () => {
     async function fetchData(id: string) {
       setIsLoading(true);
       setBoard(getBoard(id));
-
       setIsLoading(false);
-
     }
     fetchData(id);
   }, [id, history]);

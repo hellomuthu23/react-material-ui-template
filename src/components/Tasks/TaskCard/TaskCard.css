@@ -1,10 +1,10 @@
 .TaskCard {
   background: white;
-  max-width: 250px;
-  min-width: 250px;
-  max-height: 200px;
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 150px;
   margin: 20px;
-  border: 1px solid grey;
+  border: 1px solid var(--color-border);
   border-radius: 5px;
 }
 
@@ -22,11 +22,19 @@
   font-size: large;
   cursor: pointer;
   margin-top: -5px;
+  color: #d7d7d7;
+}
+
+.TaskDeleteButton:hover {
+  color: #f50057;
 }
 
 .TaskCardContent {
   padding: 10px 10px 10px 20px;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .TaskCardFooter {

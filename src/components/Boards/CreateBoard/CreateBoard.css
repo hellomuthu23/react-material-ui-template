@@ -4,7 +4,7 @@
 }
 
 .CreateBoardButton {
-  color: var(--color-background);
+  /* color: var(--color-background); */
   width: 70%;
   border-radius: 40px;
 }

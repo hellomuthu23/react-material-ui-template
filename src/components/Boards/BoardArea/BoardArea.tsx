@@ -1,9 +1,10 @@
-import { Button } from '@material-ui/core';
+import { Button, Fade } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Board, Task } from '../../../types/board';
 import { AddTask } from '../../Tasks/AddTask/AddTask';
 import { TaskCard } from '../../Tasks/TaskCard/TaskCard';
 import './BoardArea.css';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 import ReactBoard from '@lourenci/react-kanban';
 import '@lourenci/react-kanban/dist/styles.css';
@@ -39,12 +40,19 @@ export const BoardArea: React.FC<BoardAreaProps> = ({ board }) => {
   return (
     <>
       <div className='BoardAreaHeader'>
-        <h3>{board.name}</h3>
-        <Button onClick={() => setShowAddTask(true)}>Add Task</Button>
+        <div className='BoardAreaHeaderContainer'>
+          <h3>{board.name}</h3>
+          <Button startIcon={<AddCircleOutlineIcon />} color='primary' onClick={() => setShowAddTask(true)}>
+            Add Task
+          </Button>
+        </div>
       </div>
 
-      <ReactBoard initialBoard={data} renderCard={renderCard} allowAddCard={{ on: 'bottom' }} />
-
+      <Fade in={true} timeout={2000}>
+        <div>
+          <ReactBoard initialBoard={data} renderCard={renderCard} />
+        </div>
+      </Fade>
       {showAddTask && <AddTask show={showAddTask} onClose={() => setShowAddTask(false)} boardId={board.id}></AddTask>}
       <div className='Footer'></div>
     </>
