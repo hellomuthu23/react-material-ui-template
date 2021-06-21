@@ -17,7 +17,6 @@ export const addNewBoard = async (newBoard: NewBoard): Promise<string> => {
   const boardData: Board = {
     ...newBoard,
     id: ulid(),
-    average: 0,
     tasks: sampleTasks,
     createdById: user.id,
     status: Status.Started,

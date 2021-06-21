@@ -16,6 +16,7 @@ Free / Open source React MaterialUI Template - Task Board App. Ready to go templ
 3. LocalStorage - for storing tasks
 4. Prettier
 5. Typescript
+6. Jest+ReactTesting Library - for unit tests
 
 ## Task Board App Features
 
@@ -36,4 +37,3 @@ Free / Open source React MaterialUI Template - Task Board App. Ready to go templ
 2. Run `yarn` command to install the required npm package.
 3. Run `yarn start` to start the app.
 4. Access the app at `http://localhost:3000`.
-5. We use the same production database for local development too, so avoid creating too many new sessions and re-use existing one.

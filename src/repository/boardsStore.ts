@@ -2,7 +2,7 @@ import { Board } from '../types/board';
 
 const boardsStoreName = 'boards';
 
-export const addBoardToStore =  (boardId: string, data: any) => {
+export const addBoardToStore = (boardId: string, data: any) => {
   let boards: Board[] = [];
 
   const store = getFromStore(boardsStoreName);
@@ -21,8 +21,6 @@ export const getBoardFromStore = (id: string): Board | undefined => {
   const store = getFromStore(boardsStoreName);
   if (store) {
     boards = store;
-    console.log(typeof boards);
-    console.log(boards);
     return boards.find((board) => board.id === id);
   }
   return undefined;
@@ -38,9 +36,9 @@ export const getBoardsFromStore = (): Board[] => {
   return boards;
 };
 
-export const updateBoardDataInStore =  (boardId: string, data: any): boolean => {
+export const updateBoardDataInStore = (boardId: string, data: any): boolean => {
   const boards = getBoardsFromStore();
-  const filteredBoards = boards.filter(board=> board.id !== boardId);
+  const filteredBoards = boards.filter((board) => board.id !== boardId);
   const newBoards = [...filteredBoards, data];
   updateStore(boardsStoreName, newBoards);
   return true;

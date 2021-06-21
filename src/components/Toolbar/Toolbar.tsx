@@ -30,7 +30,7 @@ export const Toolbar = () => {
             </div>
             <div>
               <Button
-                title='New Session'
+                title='New Board'
                 startIcon={<AddCircleOutlineIcon />}
                 color='primary'
                 onClick={() => history.push(Routes.home)}

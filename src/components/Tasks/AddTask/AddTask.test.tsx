@@ -1,44 +1,41 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { CreateBoard } from './CreateBoard';
-import * as chatRoomsService from '../../../service/boards';
+import { AddTask } from './AddTask';
+import * as tasksService from '../../../service/task';
 
-jest.mock('../../../service/chatRooms');
+jest.mock('../../../service/task');
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
     push: jest.fn(),
   }),
 }));
-describe('CreateRoom component', () => {
+describe('AddTask component', () => {
   it('should display correct text fields', () => {
-    render(<CreateBoard />);
+    render(<AddTask boardId='2' show={true} onClose={jest.fn} />);
 
-    expect(screen.getByPlaceholderText('Enter a session name')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Enter a task name')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Enter description')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Enter your name')).toBeInTheDocument();
   });
 
   it('should display create button', () => {
-    render(<CreateBoard />);
+    render(<AddTask boardId='2' show={true} onClose={jest.fn} />);
 
     expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getByRole('button')).toHaveTextContent('Create');
+    expect(screen.getByRole('button')).toHaveTextContent('Add');
   });
-  it('should be able to create new session', async () => {
-    render(<CreateBoard />);
-    const sessionName = screen.getByPlaceholderText('Enter a session name');
-    userEvent.type(sessionName, 'Marvels');
+  it('should be able to create new task', async () => {
+    render(<AddTask boardId='2' show={true} onClose={jest.fn} />);
+    const taskName = screen.getByPlaceholderText('Enter a task name');
+    userEvent.type(taskName, 'Marvels');
 
     const userName = screen.getByPlaceholderText('Enter your name');
     userEvent.type(userName, 'Rock');
 
-    const createButton = screen.getByText('Create');
-    userEvent.click(createButton);
+    const addButton = screen.getByText('Add');
+    userEvent.click(addButton);
 
-    expect(chatRoomsService.addNewBoard).toHaveBeenCalled();
-
-    expect(chatRoomsService.addNewBoard).toHaveBeenCalledWith(
-      expect.objectContaining({ createdBy: 'SuperHeroRock', name: 'AvengersMarvels' })
-    );
+    expect(tasksService.addTask).toHaveBeenCalled();
   });
 });

@@ -1,40 +1,63 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { Board } from '../../../types/board';
-import { User } from '../../../types/user';
 import { Status } from '../../../types/status';
 import { BoardArea } from './BoardArea';
 
 describe('BoardArea component', () => {
-  const mockRoom: Board = {
+  const mockBoard: Board = {
     id: 'xyz',
     name: 'testRoom',
     createdBy: 'someone',
     createdAt: new Date(),
-    average: 0,
     createdById: 'abc',
     status: Status.InProgress,
+    tasks: [
+      {
+        createdAt: new Date(),
+        name: 'First Task',
+        id: 'id1',
+        status: Status.NotStarted,
+        createdBy: 'someone',
+        description: 'this first desc',
+      },
+      {
+        createdAt: new Date(),
+        name: 'Second Task',
+        id: 'id2',
+        status: Status.InProgress,
+        createdBy: 'someone',
+        description: 'this second desc',
+      },
+      {
+        createdAt: new Date(),
+        name: 'Third Task',
+        id: 'id1',
+        status: Status.Finished,
+        createdBy: 'someone',
+        description: 'this third desc',
+      },
+    ],
   };
-  const mockUsers: User[] = [
-    { id: 'a1', name: 'SpiderMan', status: Status.InProgress, value: 0 },
-    { id: 'a2', name: 'IronMan', status: Status.Finished, value: 3 },
-  ];
-  const mockCurrentUserId = mockUsers[0].id;
-  it('should display players', () => {
-    render(<BoardArea board={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
 
-    mockUsers.forEach((player: User) => {
-      expect(screen.getByText(player.name)).toBeInTheDocument();
+  it('should display board name', () => {
+    render(<BoardArea board={mockBoard} />);
+
+    expect(screen.getByText(mockBoard.name)).toBeInTheDocument();
+  });
+
+  it('should display task columns', () => {
+    render(<BoardArea board={mockBoard} />);
+
+    expect(screen.getByText('Todo')).toBeInTheDocument();
+    expect(screen.getByText('Doing')).toBeInTheDocument();
+    expect(screen.getByText('Done')).toBeInTheDocument();
+  });
+  it('should display task cards', () => {
+    render(<BoardArea board={mockBoard} />);
+
+    mockBoard.tasks.forEach((task) => {
+      expect(screen.getByText(task.name)).toBeInTheDocument();
     });
-  });
-
-  it('should display chatRoom controller with name', () => {
-    render(<BoardArea board={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
-    expect(screen.getByText(mockRoom.name)).toBeInTheDocument();
-  });
-  it('should display card picker', () => {
-    render(<BoardArea board={mockRoom} players={mockUsers} currentUserId={mockCurrentUserId} />);
-
-    expect(screen.queryAllByText('5')).toHaveLength(3);
   });
 });

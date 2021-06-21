@@ -34,29 +34,29 @@ describe('Toolbar component', () => {
     const title = screen.getByText('Task Board');
     expect(title).toBeInTheDocument();
   });
-  it('should render Create new session button', () => {
+  it('should render Create new board button', () => {
     render(<Toolbar />);
-    const newSession = screen.getByText('New Session');
-    expect(newSession).toBeInTheDocument();
+    const newBoard = screen.getByText('New Board');
+    expect(newBoard).toBeInTheDocument();
   });
-  it('should render Join session button', () => {
+  it('should render Open board button', () => {
     render(<Toolbar />);
-    const newSession = screen.getByText('Join Session');
-    expect(newSession).toBeInTheDocument();
+    const openBoard = screen.getByText('Open Board');
+    expect(openBoard).toBeInTheDocument();
   });
-  it('should navigate to Home page when New Session button is clicked', () => {
+  it('should navigate to Home page when New Board button is clicked', () => {
     render(<Toolbar />);
-    const newSession = screen.getByText('New Session');
+    const newBoard = screen.getByText('New Board');
     act(() => {
-      userEvent.click(newSession);
+      userEvent.click(newBoard);
     });
     expect(mockHistoryPush).toBeCalledWith('/');
   });
-  it('should navigate to Join session page when Join Session button is clicked', () => {
+  it('should navigate to open board page when Open board button is clicked', () => {
     render(<Toolbar />);
-    const newSession = screen.getByText('Join Session');
+    const openBoard = screen.getByText('Open Board');
     act(() => {
-      userEvent.click(newSession);
+      userEvent.click(openBoard);
     });
     expect(mockHistoryPush).toBeCalledWith('/join');
   });

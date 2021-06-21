@@ -1,44 +1,30 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { CreateBoard } from './CreateBoard';
-import * as chatRoomsService from '../../../service/boards';
+import { TaskCard } from './TaskCard';
+import * as boardsService from '../../../service/boards';
+import { Status } from '../../../types/status';
+import { Task } from '../../../types/board';
 
-jest.mock('../../../service/chatRooms');
+jest.mock('../../../service/Task');
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
     push: jest.fn(),
   }),
 }));
-describe('CreateRoom component', () => {
-  it('should display correct text fields', () => {
-    render(<CreateBoard />);
-
-    expect(screen.getByPlaceholderText('Enter a session name')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Enter your name')).toBeInTheDocument();
-  });
-
-  it('should display create button', () => {
-    render(<CreateBoard />);
-
-    expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getByRole('button')).toHaveTextContent('Create');
-  });
-  it('should be able to create new session', async () => {
-    render(<CreateBoard />);
-    const sessionName = screen.getByPlaceholderText('Enter a session name');
-    userEvent.type(sessionName, 'Marvels');
-
-    const userName = screen.getByPlaceholderText('Enter your name');
-    userEvent.type(userName, 'Rock');
-
-    const createButton = screen.getByText('Create');
-    userEvent.click(createButton);
-
-    expect(chatRoomsService.addNewBoard).toHaveBeenCalled();
-
-    expect(chatRoomsService.addNewBoard).toHaveBeenCalledWith(
-      expect.objectContaining({ createdBy: 'SuperHeroRock', name: 'AvengersMarvels' })
-    );
+describe('TaskCard component', () => {
+  const mockTask: Task = {
+    createdAt: new Date(),
+    name: 'First Task',
+    id: 'id1',
+    status: Status.NotStarted,
+    createdBy: 'someone',
+    description: 'this first desc',
+  };
+  it('should display correct task data', () => {
+    render(<TaskCard task={mockTask} boardId='23' />);
+    expect(screen.getByText(mockTask.name)).toBeInTheDocument();
+    expect(screen.getByText(mockTask.description!)).toBeInTheDocument();
+    expect(screen.getByText('S')).toBeInTheDocument();
   });
 });
