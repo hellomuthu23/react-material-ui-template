@@ -1,0 +1,22 @@
+.AppBar {
+  box-shadow: none;
+  flex-grow: 1;
+  white-space: nowrap;
+}
+
+.HeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.HeaderLeftContainer {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.HeaderIcon {
+  margin-right: 5px;
+}

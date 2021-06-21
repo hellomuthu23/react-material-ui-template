@@ -1,0 +1,27 @@
+.AddTaskTextField {
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+.AddTaskButton {
+  width: 70%;
+  border-radius: 40px;
+}
+
+.AddTaskCard {
+  background: transparent;
+  border: none !important;
+  padding: 20px;
+}
+
+.AddTaskCardHeader {
+  text-align: center;
+}
+
+.AddTaskCardContent {
+  text-align: center;
+}
+
+.AddTaskCardAction {
+  justify-content: center;
+}

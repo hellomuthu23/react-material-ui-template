@@ -1,0 +1,22 @@
+.BoardAreaHeader {
+  display: flex;
+  justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.BoardAreaHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.react-kanban-column {
+  min-height: 70vh !important;
+}
+
+.react-kanban-board {
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}

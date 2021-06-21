@@ -1,0 +1,27 @@
+.CreateBoardTextField {
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+.CreateBoardButton {
+  /* color: var(--color-background); */
+  width: 70%;
+  border-radius: 40px;
+}
+
+.CreateBoardCard {
+  background: transparent;
+  border: none !important;
+}
+
+.CreateBoardCardHeader {
+  text-align: center;
+}
+
+.CreateBoardCardContent {
+  text-align: center;
+}
+
+.CreateBoardCardAction {
+  justify-content: center;
+}

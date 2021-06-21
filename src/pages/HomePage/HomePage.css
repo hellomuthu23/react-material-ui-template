@@ -1,0 +1,14 @@
+.HomePageContainer {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SessionImage {
+  margin-top: -10px;
+  height: 400px;
+  width: 600px;
+  transform: perspective(900px) rotateY(-20deg);
+}

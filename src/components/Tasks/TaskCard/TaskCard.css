@@ -1,0 +1,53 @@
+.TaskCard {
+  background: white;
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 150px;
+  margin: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+}
+
+.TaskCardHeader {
+  padding: 20px 10px 10px 20px;
+  font-weight: 700;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TaskDeleteButton {
+  border: none;
+  background: none;
+  font-size: large;
+  cursor: pointer;
+  margin-top: -5px;
+  color: #d7d7d7;
+}
+
+.TaskDeleteButton:hover {
+  color: #f50057;
+}
+
+.TaskCardContent {
+  padding: 10px 10px 10px 20px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.TaskCardFooter {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.TaskFooterOwner {
+  background: #d7d7d7;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 2px;
+}
