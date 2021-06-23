@@ -38,7 +38,7 @@ describe('CreateRoom component', () => {
     expect(boardsService.addNewBoard).toHaveBeenCalled();
 
     expect(boardsService.addNewBoard).toHaveBeenCalledWith(
-      expect.objectContaining({ createdBy: 'SuperHeroRock', name: 'AvengersMarvels' })
+      expect.objectContaining({ createdBy: 'SuperHeroRock', name: 'EuroTourMarvels' })
     );
   });
 });

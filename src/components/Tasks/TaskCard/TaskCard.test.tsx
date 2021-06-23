@@ -1,12 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { TaskCard } from './TaskCard';
-import * as boardsService from '../../../service/boards';
 import { Status } from '../../../types/status';
 import { Task } from '../../../types/board';
 
-jest.mock('../../../service/Task');
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
     push: jest.fn(),
