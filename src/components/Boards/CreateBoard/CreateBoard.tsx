@@ -8,7 +8,7 @@ import './CreateBoard.css';
 
 export const CreateBoard = () => {
   const history = useHistory();
-  const [boardName, setBoardName] = useState('Avengers');
+  const [boardName, setBoardName] = useState('EuroTour');
   const [createdBy, setCreatedBy] = useState('SuperHero');
 
   const handleSubmit = async (event: FormEvent) => {
