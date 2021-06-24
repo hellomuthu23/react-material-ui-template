@@ -28,6 +28,23 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: 'AIzaSyD-_UjKzbjZlXVeu_TuQKi6XzIpPF-GQwI',
+        authDomain: 'react-material-ui-template.firebaseapp.com',
+        projectId: 'react-material-ui-template',
+        storageBucket: 'react-material-ui-template.appspot.com',
+        messagingSenderId: '618960063086',
+        appId: '1:618960063086:web:28eb94730719d402a1347f',
+        measurementId: 'G-QZ6N0NGPN8',
+      }; // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
     <div id="root"></div>
   </body>
 </html>
