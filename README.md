@@ -3,11 +3,8 @@
 
 Free / Open source React MaterialUI Template - Task Board App. Ready to go template that comes with most essential things of Typescript, Lint, prettier, React Router, Material-UI and Cool Landing Page to bootstrap your web app. Just clone the Repo and start building your app.
 
-<div align="center">
-  
-[![Build and Tests](https://github.com/hellomuthu23/react-material-ui-template/actions/workflows/build-and-tests.yml/badge.svg)](https://github.com/hellomuthu23/react-material-ui-template/actions/workflows/build-and-tests.yml)
+![image](https://user-images.githubusercontent.com/59234994/123344668-3e09ea00-d54c-11eb-9b68-9403f06a9ea9.png)
 
-</div>
 
 ## Live Site
 
